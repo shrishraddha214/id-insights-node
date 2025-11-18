@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Identification System</title>
+
+  <style>
+    /* ---- Global Styles ---- */
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* ---- Container Card ---- */
+    .container {
+      width: 450px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* ---- Heading ---- */
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    /* ---- Buttons ---- */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.25s, background 0.25s, box-shadow 0.25s;
+    }
+
+    .btn-register {
+      background: #ffffff;
+      color: #4e54c8;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-register:hover {
+      background: #eaeaea;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.7);
+    }
+
+    .btn-login {
+      background: #222;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-login:hover {
+      background: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    }
+
+    /* ---- Fade-in Keyframes ---- */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---- Floating Background Shapes ---- */
+    .shape1, .shape2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.6;
+      animation: float 6s ease-in-out infinite alternate;
+    }
+
+    .shape1 {
+      width: 250px;
+      height: 250px;
+      background: #ffb3fe;
+      top: -50px;
+      left: -70px;
+    }
+
+    .shape2 {
+      width: 300px;
+      height: 300px;
+      background: #90f1ff;
+      bottom: -70px;
+      right: -60px;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(30px); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+
+  <div class="container">
+    <h1>User Identification System</h1>
+    <p>Secure. Simple. Smart. Identify users with ease.</p>
+
+    <a href="register.html" class="btn btn-register">Create Account</a>
+    <a href="login.html" class="btn btn-login">Sign In</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #4e54c8, #8f94fb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .container {
+      width: 480px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      animation: fadeIn 1.2s ease;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .info-box {
+      background: rgba(255, 255, 255, 0.18);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      text-align: left;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-box p {
+      margin: 10px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .btn-logout {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 12px 25px;
+      background: #222;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+      transition: 0.3s;
+    }
+
+    .btn-logout:hover {
+      background: #000;
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Floating shapes */
+    .shape1, .shape2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.6;
+      animation: float 6s ease-in-out infinite alternate;
+    }
+
+    .shape1 {
+      width: 250px;
+      height: 250px;
+      background: #ffb3fe;
+      top: -50px;
+      left: -70px;
+    }
+
+    .shape2 {
+      width: 300px;
+      height: 300px;
+      background: #90f1ff;
+      bottom: -70px;
+      right: -60px;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(30px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+
+  <div class="container">
+    <h2>Welcome to Your Dashboard</h2>
+
+    <div class="info-box" id="userInfo"></div>
+
+    <a href="#" class="btn-logout" onclick="logout()">Logout</a>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+      document.body.innerHTML = "<h2 style='text-align:center;'>No user logged in.</h2>";
+    } else {
+      document.getElementById("userInfo").innerHTML = `
+        <p><strong>Name:</strong> ${user.name}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+      `;
+    }
+
+    function logout() {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>
