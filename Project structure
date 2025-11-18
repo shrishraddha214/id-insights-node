@@ -1,0 +1,27 @@
+project-folder/
+│
+├── backend/
+│   ├── server.js              # Main backend server (Node.js )
+│   ├── package.json           # Project dependencies and scripts
+│   ├── package-lock.json      # Dependency lock file
+│   └── node_modules/          # Installed libraries (ignored in GitHub)
+│
+├── frontend/
+│   ├── index.html             # Landing page
+│   ├── register.html          # User registration interface
+│   ├── login.html             # User login interface
+│   ├── dashboard.html         # User dashboard after login
+│   ├── admin.html             # Admin panel (view all users)
+│   │
+│   ├── css/
+│   │   └── style.css          # UI styling and layout
+│   │
+│   ├── js/
+│   │   └── script.js          # Frontend logic + Fetch API requests
+│   │
+│   └── assets/                # Images, icons, and UI resources
+│
+├── database/
+│   └── user_system.sql        # SQL schema and table creation script
+│
+└── README.md                  # Project documentation
