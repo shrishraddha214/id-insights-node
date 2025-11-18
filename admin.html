@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            color: white;
+            padding: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+        }
+        th {
+            background: rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Admin — Registered Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+    </table>
+
+    <script>
+        async function loadUsers() {
+            const res = await fetch("http://localhost:3000/admin/users");
+            const data = await res.json();
+
+            if (data.status === "success") {
+                let rows = "";
+                data.users.forEach(u => {
+                    rows += `
+                    <tr>
+                        <td>${u.id}</td>
+                        <td>${u.name}</td>
+                        <td>${u.email}</td>
+                    </tr>`;
+                });
+                document.getElementById("userTable").innerHTML = rows;
+            }
+        }
+
+        loadUsers();
+    </script>
+
+</body>
+</html>
